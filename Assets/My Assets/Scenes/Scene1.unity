@@ -1414,7 +1414,7 @@ GameObject:
   - component: {fileID: 412631248}
   - component: {fileID: 412631247}
   m_Layer: 5
-  m_Name: Potato Chips
+  m_Name: Potato_Chips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3690,6 +3690,7 @@ GameObject:
   - component: {fileID: 1046126389}
   - component: {fileID: 1046126388}
   - component: {fileID: 1046126387}
+  - component: {fileID: 1046126392}
   m_Layer: 0
   m_Name: ARCamera
   m_TagString: Untagged
@@ -3777,6 +3778,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1046126392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1046126386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee95db149305aa04b83f84569d1fbfd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1129368865
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,7 +50,8 @@ public class CardChecker : MonoBehaviour {
 			sceneManager.CatchCheat();
 			score = 0;
 		} else if (trackedCount == 2) {
-			if (trackedObjects[0].name.Split(' ')[0] == trackedObjects[1].name.Split(' ')[0]) FoundPair(trackedObjects[0].name.Split(' ')[0]);
+			if (trackedObjects[0].name.Split(' ')[0] == trackedObjects[1].name.Split(' ')[0])
+				FoundPair(trackedObjects[0].name.Split(' ')[0]);
 			foodIcon.TrackedFood = null;
 		} else if (trackedCount == 1) {
 			foreach (TestTrackableEventHandler handler in trackedObjects) {

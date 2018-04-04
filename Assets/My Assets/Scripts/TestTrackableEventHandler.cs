@@ -73,6 +73,6 @@ public class TestTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 		foreach (var component in canvasComponents)
 			component.enabled = false;
 
-		cardChecker.trackedObjects.Remove(this);
+		if (cardChecker != null) cardChecker.trackedObjects.Remove(this);
 	}
 }
