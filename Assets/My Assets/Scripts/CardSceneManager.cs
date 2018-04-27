@@ -8,9 +8,16 @@ public class CardSceneManager : MonoBehaviour {
 	[Tooltip("Text of Paused Game screen")][SerializeField] private Text text;
 	[Tooltip("Button for starting/finishing the level")][SerializeField] private Button btnContinue;
 	[Tooltip("Button for exiting the level")][SerializeField] private Button btnBack;
+	[Tooltip("Time the game is running")][SerializeField] private float gameTime;
+	public float currentTime;
+	private bool levelFinished = false;
 
 	public bool isPaused() {
 		return gamePaused.activeInHierarchy;
+	}
+
+	void Update() {
+		currentTime = Time.time;
 	}
 
 	public void StartScene() {
@@ -26,19 +33,29 @@ public class CardSceneManager : MonoBehaviour {
 		gamePaused.SetActive(false);
 		btnBack.enabled = true;
 		btnBack.onClick.AddListener(Back);
+		gameTime = Time.time;
 	}
 
 	public void finishLevel() {
-		gamePaused.SetActive(true);
-		text.text = "You win!";
-		btnBack.enabled = false;
-		btnContinue.onClick.RemoveAllListeners();
-		btnContinue.onClick.AddListener(Back);
-		btnContinue.GetComponentInChildren<Text>().text = "Back to Menu";
+		if (!levelFinished) {
+			gameTime = Time.time - gameTime;
+			levelFinished = true;
+			gamePaused.SetActive (true);
+			text.text = "You win!\n"
+				+ "Time: " + gameTime;
+			btnBack.enabled = false;
+			btnContinue.onClick.RemoveAllListeners ();
+			btnContinue.onClick.AddListener (Back);
+			btnContinue.GetComponentInChildren<Text> ().text = "Back to Menu";
+		}
 	}
 
 	void Back() {
 		Debug.Log("Clicked on Back");
+		if (levelFinished) {
+			GameData.Instance.updateHighScore (gameTime);
+			if (GameData.Instance.highScore == gameTime) GameController.Save ();
+		}
 		SceneManager.LoadScene("Main Menu");
 	}
 
