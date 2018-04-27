@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
@@ -9,15 +8,10 @@ public class CardSceneManager : MonoBehaviour {
 	[Tooltip("Button for starting/finishing the level")][SerializeField] private Button btnContinue;
 	[Tooltip("Button for exiting the level")][SerializeField] private Button btnBack;
 	[Tooltip("Time the game is running")][SerializeField] private float gameTime;
-	public float currentTime;
 	private bool levelFinished = false;
 
 	public bool isPaused() {
 		return gamePaused.activeInHierarchy;
-	}
-
-	void Update() {
-		currentTime = Time.time;
 	}
 
 	public void StartScene() {

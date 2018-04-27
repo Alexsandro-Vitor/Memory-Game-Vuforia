@@ -4,8 +4,7 @@ using Vuforia;
 /// <summary>
 ///     A custom handler that implements the ITrackableEventHandler interface.
 /// </summary>
-public class TestTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
-{
+public class TestTrackableEventHandler : MonoBehaviour, ITrackableEventHandler {
 	protected TrackableBehaviour mTrackableBehaviour;
 	public CardChecker cardChecker;
 
